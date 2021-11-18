@@ -5,9 +5,7 @@ import GlobalStyle from "./themes/GlobalStyles";
 const App = () => {
   return (
     <Fragment>
-      <GlobalStyle />
-      <Header />
-      <h1>App</h1>
+      <h1>Hello from App</h1>
     </Fragment>
   );
 };
