@@ -1,8 +1,14 @@
+import React, { Fragment } from "react";
+import Header from "./components/Header";
+import GlobalStyle from "./themes/GlobalStyles";
+
 const App = () => {
   return (
-    <div>
+    <Fragment>
+      <GlobalStyle />
+      <Header />
       <h1>App</h1>
-    </div>
+    </Fragment>
   );
 };
 
