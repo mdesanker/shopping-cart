@@ -12,7 +12,9 @@ const Header = () => {
           <NavLink to="/products">
             <li>Products</li>
           </NavLink>
-          <li>Contact</li>
+          <NavLink to="/contact">
+            <li>Contact</li>
+          </NavLink>
           <li>
             <i className="fas fa-shopping-cart"></i>
           </li>
@@ -37,7 +39,7 @@ const NavUnordered = styled.ul`
     padding: 20px;
   }
 
-  & .current {
+  .current {
     li {
       border-bottom: 2px solid black;
     }

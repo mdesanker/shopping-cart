@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 
 const Products = () => {
   return (
     <Fragment>
       <h1>Hello from Products</h1>
-      Test
     </Fragment>
   );
 };
