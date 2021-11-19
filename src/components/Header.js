@@ -2,6 +2,11 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const Header = () => {
+  const links = [
+    { name: "Products", to: "/products" },
+    { name: "Contact", to: "/contact" },
+  ];
+
   return (
     <HeaderContainer>
       <Nav>
@@ -9,12 +14,13 @@ const Header = () => {
           <h3>Logo</h3>
         </NavLink>
         <NavUnordered>
-          <NavLink to="/products">
-            <li>Products</li>
-          </NavLink>
-          <NavLink to="/contact">
-            <li>Contact</li>
-          </NavLink>
+          {links.map((link) => {
+            return (
+              <NavLink to={link.to}>
+                <li>{link.name}</li>
+              </NavLink>
+            );
+          })}
           <li>
             <i className="fas fa-shopping-cart"></i>
           </li>
