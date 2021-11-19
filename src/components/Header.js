@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Header = () => {
   const links = [
-    { name: "Products", to: "/products" },
-    { name: "Contact", to: "/contact" },
+    { id: 1, name: "Products", to: "/products" },
+    { id: 2, name: "Contact", to: "/contact" },
   ];
 
   return (
@@ -16,7 +16,7 @@ const Header = () => {
         <NavUnordered>
           {links.map((link) => {
             return (
-              <NavLink to={link.to}>
+              <NavLink key={link.id} to={link.to}>
                 <li>{link.name}</li>
               </NavLink>
             );
