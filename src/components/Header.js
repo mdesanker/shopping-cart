@@ -6,7 +6,7 @@ const Header = () => {
     <HeaderContainer>
       <Nav>
         <NavLink to="/">
-          <h3>Shop'd</h3>
+          <h3>Logo</h3>
         </NavLink>
         <NavUnordered>
           <NavLink to="/products">
