@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
+import styled from "styled-components";
+import ItemCard from "./ItemCard";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -30,11 +32,18 @@ const Products = () => {
   return (
     <Fragment>
       <h1>Products</h1>
-      {products.map((item) => {
-        return <p key={item.id}>{item.title}</p>;
-      })}
+      <ProductContainer>
+        {products.map((item) => {
+          return <ItemCard key={item.id} info={item} />;
+        })}
+      </ProductContainer>
     </Fragment>
   );
 };
+
+const ProductContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 export default Products;
