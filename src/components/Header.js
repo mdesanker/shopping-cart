@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = (props) => {
   const links = [
     { id: 1, name: "Products", to: "/products" },
     { id: 2, name: "Contact", to: "/contact" },
@@ -22,7 +22,9 @@ const Header = () => {
             );
           })}
           <li>
-            <i className="fas fa-shopping-cart"></i>
+            <button onClick={props.onOpenCart}>
+              <i className="fas fa-shopping-cart"></i>
+            </button>
           </li>
         </NavUnordered>
       </Nav>
@@ -33,10 +35,12 @@ const Header = () => {
 const HeaderContainer = styled.header`
   display: flex;
   justify-content: center;
+  height: 70px;
 `;
 
 const NavUnordered = styled.ul`
   display: flex;
+  align-items: center;
   gap: 2vw;
 
   & li {
@@ -49,6 +53,13 @@ const NavUnordered = styled.ul`
     li {
       border-bottom: 2px solid black;
     }
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 5px;
+    border: none;
+    background-color: transparent;
   }
 `;
 

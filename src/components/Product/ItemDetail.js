@@ -72,9 +72,10 @@ const ImageContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
   max-width: 400px;
+  // max-height: 100%;
   height: auto;
+  width: 100%;
 `;
 
 const DetailContainer = styled.div`
