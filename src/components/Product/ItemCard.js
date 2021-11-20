@@ -1,16 +1,19 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ItemCard = (props) => {
   return (
     <Card>
-      <ImageContainer>
-        <ProductImage src={props.info.image} alt={props.info.title} />
-      </ImageContainer>
-      <LabelContainer>
-        <Label>{props.info.title}</Label>
-        <RatingLabel>{`Reviews: ${props.info.rating.rate}/5 (${props.info.rating.count})`}</RatingLabel>
-        <PriceLabel>{`$${props.info.price.toFixed(2)}`}</PriceLabel>
-      </LabelContainer>
+      <Link to={`/products/${props.info.id}`}>
+        <ImageContainer>
+          <ProductImage src={props.info.image} alt={props.info.title} />
+        </ImageContainer>
+        <LabelContainer>
+          <Label>{props.info.title}</Label>
+          <RatingLabel>{`Reviews: ${props.info.rating.rate}/5 (${props.info.rating.count})`}</RatingLabel>
+          <PriceLabel>{`$${props.info.price.toFixed(2)}`}</PriceLabel>
+        </LabelContainer>
+      </Link>
     </Card>
   );
 };
@@ -24,6 +27,10 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: 10px;
+
+  & a {
+    color: black;
+  }
 `;
 
 const ProductImage = styled.img`

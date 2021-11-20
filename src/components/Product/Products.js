@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import ItemCard from "./ItemCard";
 import uniqid from "uniqid";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   // States
@@ -35,7 +36,7 @@ const Products = () => {
       setProductDisplay(products);
 
       console.log("content", productDisplay);
-      console.log(categories);
+      // console.log(categories);
     } catch (error) {
       console.log(error.message);
     }
@@ -77,7 +78,12 @@ const Products = () => {
         </MenuContainer>
         <CardContainer>
           {productDisplay.map((item) => {
-            return <ItemCard key={item.id} info={item} />;
+            return (
+              // <Link to={`/products/${item.id}`} key={item.id}>
+              //   <ItemCard info={item} />
+              // </Link>
+              <ItemCard key={item.id} info={item} />
+            );
           })}
         </CardContainer>
       </DisplayContainer>
