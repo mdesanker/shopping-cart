@@ -27,8 +27,8 @@ const Card = styled.div`
 `;
 
 const ProductImage = styled.img`
-  max-height: 90%;
-  max-width: 90%;
+  max-height: 250px;
+  max-width: 100%;
   width: auto;
   height: auto;
 `;

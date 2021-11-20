@@ -4,10 +4,12 @@ import ItemCard from "./ItemCard";
 import uniqid from "uniqid";
 
 const Products = () => {
-  const [content, setContent] = useState();
+  // States
+  const [productDisplay, setProductDisplay] = useState([]);
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
+  // Functions
   const fetchAPI = async () => {
     try {
       const [productResponse, categoryResponse] = await Promise.all([
@@ -30,28 +32,30 @@ const Products = () => {
 
       setProducts(products);
       setCategories(categories);
-      setContent(products);
+      setProductDisplay(products);
 
-      console.log("content", content);
+      console.log("content", productDisplay);
       console.log(categories);
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  useEffect(() => {
-    fetchAPI();
-  }, []);
-
   const filterHandler = (e) => {
     const { id } = e.target;
     console.log(id);
-    setContent(
-      products.filter((product) => {
-        return product.category === id;
-      })
-    );
+    if (id === "all") setProductDisplay(products);
+    else
+      setProductDisplay(
+        products.filter((product) => {
+          return product.category === id;
+        })
+      );
   };
+
+  useEffect(() => {
+    fetchAPI();
+  }, []);
 
   let menu = categories.map((category) => {
     return (
@@ -66,10 +70,15 @@ const Products = () => {
       <h1>Products</h1>
       <SortMenu>
         <h2>Categories</h2>
-        <ul>{menu}</ul>
+        <ul>
+          <li id="all" onClick={filterHandler}>
+            all
+          </li>
+          {menu}
+        </ul>
       </SortMenu>
       <ProductContainer>
-        {content.map((item) => {
+        {productDisplay.map((item) => {
           return <ItemCard key={item.id} info={item} />;
         })}
       </ProductContainer>
@@ -77,6 +86,7 @@ const Products = () => {
   );
 };
 
+// styled components
 const SortMenu = styled.div`
   width: 20%;
   background-color: gray;
@@ -85,6 +95,7 @@ const SortMenu = styled.div`
 const ProductContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
 `;
 
 const Main = styled.main`
