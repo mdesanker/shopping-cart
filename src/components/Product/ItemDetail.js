@@ -41,6 +41,18 @@ const ItemDetail = () => {
         <h3>About this item</h3>
         <p>{item.description}</p>
         <Price>{item.price && `$ ${item.price.toFixed(2)}`}</Price>
+        <AddContainer>
+          <select name="quantity" id="quantity">
+            <option value="1" selected>
+              1
+            </option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button type="button">Add to Cart</button>
+        </AddContainer>
       </DetailContainer>
     </ItemContainer>
   );
@@ -94,6 +106,36 @@ const Header = styled.div`
 const Price = styled.h2`
   text-align: right;
   padding-top: 20px;
+`;
+
+const AddContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 0;
+
+  select {
+    font-size: 1rem;
+    height: 2rem;
+    text-align: center;
+    width: 50px;
+  }
+
+  button {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 10px 20px;
+    color: white;
+    background-color: #264653;
+    border-radius: 5px;
+    border: 2px solid #264653;
+    transition: 100ms all;
+  }
+
+  button:hover {
+    color: #264653;
+    background-color: white;
+  }
 `;
 
 export default ItemDetail;
