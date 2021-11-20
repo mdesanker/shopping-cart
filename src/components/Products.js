@@ -94,10 +94,11 @@ const Main = styled.main`
 `;
 
 const MenuContainer = styled.div`
-  // position: fixed;
-  // top: 50px;
+  position: fixed;
+  top: 120px;
   width: 20%;
   max-width: 180px;
+  min-height: 60vh;
   border-right: 1px solid gray;
   padding: 10px;
   display: flex;
@@ -131,6 +132,7 @@ const CardContainer = styled.div`
   flex-wrap: wrap;
   width: 80%;
   justify-content: space-evenly;
+  margin-left: 180px;
 `;
 
 export default Products;
