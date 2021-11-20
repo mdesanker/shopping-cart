@@ -4,6 +4,7 @@ import ItemCard from "./ItemCard";
 import uniqid from "uniqid";
 
 const Products = () => {
+  const [content, setContent] = useState();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
@@ -29,8 +30,9 @@ const Products = () => {
 
       setProducts(products);
       setCategories(categories);
+      setContent(products);
 
-      console.log(products);
+      console.log("content", content);
       console.log(categories);
     } catch (error) {
       console.log(error.message);
@@ -41,19 +43,33 @@ const Products = () => {
     fetchAPI();
   }, []);
 
+  const filterHandler = (e) => {
+    const { id } = e.target;
+    console.log(id);
+    setContent(
+      products.filter((product) => {
+        return product.category === id;
+      })
+    );
+  };
+
+  let menu = categories.map((category) => {
+    return (
+      <li id={category} key={uniqid()} onClick={filterHandler}>
+        {category}
+      </li>
+    );
+  });
+
   return (
     <Main>
       <h1>Products</h1>
       <SortMenu>
         <h2>Categories</h2>
-        <ul>
-          {categories.map((category) => {
-            return <li key={uniqid()}>{category}</li>;
-          })}
-        </ul>
+        <ul>{menu}</ul>
       </SortMenu>
       <ProductContainer>
-        {products.map((item) => {
+        {content.map((item) => {
           return <ItemCard key={item.id} info={item} />;
         })}
       </ProductContainer>
