@@ -14,7 +14,7 @@ const ItemDetail = (props) => {
       const itemData = await itemResponse.json();
 
       setItem(itemData);
-      console.log(itemData);
+      // console.log(itemData);
     } catch (error) {
       console.log(error.message);
     }
@@ -22,7 +22,7 @@ const ItemDetail = (props) => {
 
   useEffect(() => {
     fetchItem();
-    console.log(item);
+    // console.log(item);
   }, []);
 
   return (

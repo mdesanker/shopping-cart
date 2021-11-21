@@ -23,7 +23,7 @@ const RouteSwitch = () => {
 
   const addToCartHandler = (e) => {
     const { id } = e.target;
-    console.log("ID selected", id);
+    // console.log("ID selected", id);
     setCart((prevState) => [...prevState, id]);
     openCartHandler();
   };

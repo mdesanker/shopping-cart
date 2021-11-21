@@ -3,9 +3,37 @@ import ReactDOM from "react-dom";
 import { Fragment, useEffect, useState } from "react";
 
 const CartContent = (props) => {
-  const [cartDisplay, setCartDisplay] = useState([]);
+  const [cartIDs, setCartIDs] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
-  console.log("passed", props.cartInfo);
+  // console.log("cart", props.cartInfo);
+
+  useEffect(() => {
+    setCartIDs(props.cartInfo);
+
+    const fetchItem = async (id) => {
+      try {
+        const itemResponse = await fetch(
+          `https://fakestoreapi.com/products/${id}`
+        );
+        const itemData = await itemResponse.json();
+
+        console.log("cart", itemData);
+        // setCartItems((prevState) => {
+        //   return [...prevState, itemData];
+        // });
+        // console.log(cartItems);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    // cartIDs.forEach((id) => {
+    //   fetchItem(id);
+    // });
+
+    fetchItem(cartIDs.at(-1));
+  }, [props.cartInfo]);
 
   return (
     <CartContainer>
@@ -13,10 +41,10 @@ const CartContent = (props) => {
         <i className="fas fa-times" />
       </CloseButton>
       <h1>Your Cart</h1>
-      {/* {cartDisplay &&
-        cartDisplay.map((item) => {
-          return <p>{item}</p>;
-        })} */}
+      {cartIDs &&
+        cartIDs.map((item) => {
+          return <p key={item}>{item}</p>;
+        })}
     </CartContainer>
   );
 };

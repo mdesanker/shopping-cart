@@ -34,7 +34,7 @@ const Products = (props) => {
       setCategories(categories);
       setProductDisplay(products);
 
-      console.log("content", productDisplay);
+      // console.log("content", productDisplay);
       // console.log(categories);
     } catch (error) {
       console.log(error.message);
@@ -43,7 +43,7 @@ const Products = (props) => {
 
   const filterHandler = (e) => {
     const { id } = e.target;
-    console.log(id);
+    // console.log(id);
     if (id === "all") setProductDisplay(products);
     else
       setProductDisplay(
