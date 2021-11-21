@@ -18,4 +18,4 @@ npm start
 - React
 - styled-components
 - React Router
-- Fake Store API
+- Dummy Products API
