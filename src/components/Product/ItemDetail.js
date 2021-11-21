@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
 
-const ItemDetail = () => {
+const ItemDetail = (props) => {
   let { id } = useParams();
   const [item, setItem] = useState({});
 
@@ -43,7 +43,7 @@ const ItemDetail = () => {
         <Price>{item.price && `$ ${item.price.toFixed(2)}`}</Price>
         <AddContainer>
           <select name="quantity" id="quantity">
-            <option value="1" selected>
+            <option value="1" defaultValue>
               1
             </option>
             <option value="2">2</option>
@@ -51,7 +51,14 @@ const ItemDetail = () => {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          <button type="button">Add to Cart</button>
+          {/* <button
+            type="button"
+            id={id}
+            onClick={(e) => console.log(e.target.id)}
+          > */}
+          <button type="button" id={id} onClick={props.onAdd}>
+            Add to Cart
+          </button>
         </AddContainer>
       </DetailContainer>
     </ItemContainer>

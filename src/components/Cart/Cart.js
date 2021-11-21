@@ -1,14 +1,22 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 const CartContent = (props) => {
+  const [cartDisplay, setCartDisplay] = useState([]);
+
+  console.log("passed", props.cartInfo);
+
   return (
     <CartContainer>
       <CloseButton onClick={props.onCloseCartClick}>
-        <i class="fas fa-times" />
+        <i className="fas fa-times" />
       </CloseButton>
       <h1>Your Cart</h1>
+      {/* {cartDisplay &&
+        cartDisplay.map((item) => {
+          return <p>{item}</p>;
+        })} */}
     </CartContainer>
   );
 };
@@ -17,7 +25,10 @@ const Cart = (props) => {
   return (
     <Fragment>
       {ReactDOM.createPortal(
-        <CartContent onCloseCartClick={props.onCloseCart} />,
+        <CartContent
+          onCloseCartClick={props.onCloseCart}
+          cartInfo={props.cartDetails}
+        />,
         document.querySelector("#cart")
       )}
       {ReactDOM.createPortal(

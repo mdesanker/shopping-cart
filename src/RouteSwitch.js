@@ -11,6 +11,7 @@ import Cart from "./components/Cart/Cart";
 
 const RouteSwitch = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cart, setCart] = useState([]);
 
   const openCartHandler = () => {
     setIsCartOpen(true);
@@ -20,16 +21,26 @@ const RouteSwitch = () => {
     setIsCartOpen(false);
   };
 
+  const addToCartHandler = (e) => {
+    const { id } = e.target;
+    console.log("ID selected", id);
+    setCart((prevState) => [...prevState, id]);
+    openCartHandler();
+  };
+
   return (
     <Router>
       <GlobalStyle />
       <Header onOpenCart={openCartHandler} />
-      {isCartOpen && <Cart onCloseCart={closeCartHandler} />}
+      {isCartOpen && <Cart cartDetails={cart} onCloseCart={closeCartHandler} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/products/:id" element={<ItemDetail />} />
+        <Route
+          path="/products/:id"
+          element={<ItemDetail onAdd={addToCartHandler} />}
+        />
         {/* <Route
           path="/products/:id"
           render={({ match }) => <ItemDetail id={match.params.id} />}

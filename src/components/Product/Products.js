@@ -2,9 +2,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import ItemCard from "./ItemCard";
 import uniqid from "uniqid";
-import { Link } from "react-router-dom";
 
-const Products = () => {
+const Products = (props) => {
   // States
   const [productDisplay, setProductDisplay] = useState([]);
   const [products, setProducts] = useState([]);
@@ -79,10 +78,7 @@ const Products = () => {
         <CardContainer>
           {productDisplay.map((item) => {
             return (
-              // <Link to={`/products/${item.id}`} key={item.id}>
-              //   <ItemCard info={item} />
-              // </Link>
-              <ItemCard key={item.id} info={item} />
+              <ItemCard key={item.id} info={item} onAddItem={props.onAdd} />
             );
           })}
         </CardContainer>
