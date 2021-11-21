@@ -7,20 +7,24 @@ import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import ItemDetail from "./components/Product/ItemDetail";
 import { useState } from "react";
-import Overlay from "./components/Cart/Cart";
+import Cart from "./components/Cart/Cart";
 
 const RouteSwitch = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const openCartHandler = () => {
-    isCartOpen ? setIsCartOpen(false) : setIsCartOpen(true);
+    setIsCartOpen(true);
+  };
+
+  const closeCartHandler = () => {
+    setIsCartOpen(false);
   };
 
   return (
     <Router>
       <GlobalStyle />
       <Header onOpenCart={openCartHandler} />
-      {isCartOpen && <Overlay />}
+      {isCartOpen && <Cart onCloseCart={closeCartHandler} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />

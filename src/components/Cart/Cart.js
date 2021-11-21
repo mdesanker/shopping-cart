@@ -1,21 +1,68 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
+import { Fragment } from "react";
+
+const CartContent = (props) => {
+  return (
+    <CartContainer>
+      <CloseButton onClick={props.onCloseCartClick}>
+        <i class="fas fa-times" />
+      </CloseButton>
+      <h1>Your Cart</h1>
+    </CartContainer>
+  );
+};
 
 const Cart = (props) => {
-  return <CartContainer>Test</CartContainer>;
+  return (
+    <Fragment>
+      {ReactDOM.createPortal(
+        <CartContent onCloseCartClick={props.onCloseCart} />,
+        document.querySelector("#cart")
+      )}
+      {ReactDOM.createPortal(
+        <Overlay onClick={props.onCloseCart} />,
+        document.querySelector("#overlay")
+      )}
+    </Fragment>
+  );
 };
 
-const Overlay = (props) => {
-  return ReactDOM.createPortal(<Cart />, document.querySelector("#overlay"));
-};
+const CloseButton = styled.button`
+  font-size: 2rem;
+  padding: 0.5rem;
+  border: none;
+  background-color: transparent;
+
+  position: absolute;
+  right: 10px;
+  top: 10px;
+`;
 
 const CartContainer = styled.div`
   position: absolute;
-  top: 70px;
+  top: 0;
   right: 0;
   height: 100vh;
   width: 400px;
-  background-color: gray;
+  background-color: #f5f5f5;
+  padding: 70px 30px;
+  display: flex;
+  flex-direction: column;
+
+  z-index: 100;
 `;
 
-export default Overlay;
+const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+
+  z-index: 50;
+`;
+
+export default Cart;
