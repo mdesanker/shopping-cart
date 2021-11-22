@@ -1,37 +1,42 @@
 import React, { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import ItemCard from "./ItemCard";
-import uniqid from "uniqid";
+import productData from "../../assets/catalog.json";
 
 const Products = (props) => {
   // States
-  const [productDisplay, setProductDisplay] = useState([]);
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    setProducts(productData);
+  }, []);
+
+  console.log(products);
 
   // Functions
 
-  let menu = categories.map((category) => {
-    return (
-      <Button id={category} key={uniqid()} onClick={filterHandler}>
-        {category}
-      </Button>
-    );
-  });
+  // let menu = categories.map((category) => {
+  //   return (
+  //     <Button id={category} key={uniqid()} onClick={filterHandler}>
+  //       {category}
+  //     </Button>
+  //   );
+  // });
 
   return (
     <Main>
       <DisplayContainer>
-        <MenuContainer>
+        {/* <MenuContainer>
           <p>Categories</p>
           <Button id="all" onClick={filterHandler}>
             all
           </Button>
           {menu}
-        </MenuContainer>
+        </MenuContainer> */}
         <CardContainer>
-          {productDisplay.map((item) => {
+          {products.map((item) => {
             return (
+              // <p>{item.name}</p>
               <ItemCard key={item.id} info={item} onAddItem={props.onAdd} />
             );
           })}

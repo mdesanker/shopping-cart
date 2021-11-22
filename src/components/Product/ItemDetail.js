@@ -1,38 +1,25 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import styled from "styled-components";
+import productData from "../../assets/catalog.json";
 
 const ItemDetail = (props) => {
   let { id } = useParams();
   const [item, setItem] = useState({});
 
-  const fetchItem = async () => {
-    try {
-      const itemResponse = await fetch(
-        `https://fakestoreapi.com/products/${id}`
-      );
-      const itemData = await itemResponse.json();
-
-      setItem(itemData);
-      // console.log(itemData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
   useEffect(() => {
-    fetchItem();
-    // console.log(item);
+    setItem(productData[id]);
+    console.log(item);
   }, []);
 
   return (
     <ItemContainer>
       <ImageContainer>
-        <Image src={item.image} alt={`${item.title}`} />
+        <Image src={item.image} alt={`${item.name}`} />
       </ImageContainer>
       <DetailContainer>
         <Header>
-          <h1>{item.title}</h1>
+          <h1>{item.name}</h1>
           <p>
             {item.rating &&
               `Rating: ${item.rating.rate}/5 (${item.rating.count})`}

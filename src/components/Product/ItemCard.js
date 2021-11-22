@@ -6,11 +6,10 @@ const ItemCard = (props) => {
     <Card>
       <Link to={`/products/${props.info.id}`}>
         <ImageContainer>
-          <ProductImage src={props.info.image} alt={props.info.title} />
+          <ProductImage src={props.info.image} alt={props.info.name} />
         </ImageContainer>
         <LabelContainer>
-          <Label>{props.info.title}</Label>
-          <RatingLabel>{`Reviews: ${props.info.rating.rate}/5 (${props.info.rating.count})`}</RatingLabel>
+          <Label>{props.info.name}</Label>
           <PriceLabel>{`$${props.info.price.toFixed(2)}`}</PriceLabel>
         </LabelContainer>
       </Link>
@@ -58,11 +57,6 @@ const Label = styled.p`
   width: 100%;
   text-align: center;
   font-weight: 500;
-`;
-
-const RatingLabel = styled(Label)`
-  font-size: 1rem;
-  color: #007185;
 `;
 
 const PriceLabel = styled(Label)`
