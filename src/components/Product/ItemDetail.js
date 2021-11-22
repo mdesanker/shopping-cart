@@ -9,13 +9,12 @@ const ItemDetail = (props) => {
 
   useEffect(() => {
     setItem(productData[id]);
-    console.log(item);
   }, []);
 
   return (
     <ItemContainer>
       <ImageContainer>
-        <Image src={item.image} alt={`${item.name}`} />
+        <Image src={`.${item.image}`} alt={`${item.name}`} />
       </ImageContainer>
       <DetailContainer>
         <Header>
@@ -38,11 +37,6 @@ const ItemDetail = (props) => {
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-          {/* <button
-            type="button"
-            id={id}
-            onClick={(e) => console.log(e.target.id)}
-          > */}
           <button type="button" id={id} onClick={props.onAdd}>
             Add to Cart
           </button>
