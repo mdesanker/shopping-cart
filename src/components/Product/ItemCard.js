@@ -3,33 +3,37 @@ import { Link } from "react-router-dom";
 
 const ItemCard = (props) => {
   return (
-    <Card>
+    <CardContainer>
       <Link to={`/products/${props.info.id}`}>
-        <ImageContainer>
-          <ProductImage src={props.info.image} alt={props.info.name} />
-        </ImageContainer>
-        <LabelContainer>
-          <Label>{props.info.name}</Label>
-          <PriceLabel>{`$${props.info.price.toFixed(2)}`}</PriceLabel>
-        </LabelContainer>
+        <Card>
+          <ImageContainer>
+            <ProductImage src={props.info.image} alt={props.info.name} />
+          </ImageContainer>
+          <LabelContainer>
+            <Label>{props.info.name}</Label>
+            <PriceLabel>{`$${props.info.price.toFixed(2)}`}</PriceLabel>
+          </LabelContainer>
+        </Card>
       </Link>
-    </Card>
+    </CardContainer>
   );
 };
 
+const CardContainer = styled.div`
+  & a {
+    color: black;
+  }
+`;
+
 const Card = styled.div`
-  width: 250px;
-  height: 400px;
+  width: 300px;
+  height: 350px;
   padding-bottom: 20px;
   border-bottom: 2px solid gray;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 10px;
-
-  & a {
-    color: black;
-  }
 `;
 
 const ProductImage = styled.img`
