@@ -1,0 +1,82 @@
+[
+  {
+    "id": 0,
+    "name": "Anchor Bracelet",
+    "price": 14.99,
+    "category": "Jewelry",
+    "description": "This simple and beautiful bracelet combines blue cowhide with a brass anchor.",
+    "image": "./images/anchor-bracelet.jpg"
+  },
+  {
+    "id": 1,
+    "name": "Handbag",
+    "price": 74.5,
+    "category": "Accessories",
+    "description": "This 100% leather handbag is both elegant and functional.",
+    "image": "./images/black-hand-bag.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Black Sneaker",
+    "price": 52.5,
+    "category": "Shoes",
+    "description": "A lightweight mesh upper delivers complete breathability in this stylish trainer.",
+    "image": "./images/black-sneaker.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Running Shoes",
+    "price": 64.95,
+    "category": "Shoes",
+    "description": "Charged cushioning midsole uses compression molded foam for ultimate responsiveness and durability.",
+    "image": "./images/black-sneakers-white-sole.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Smart Watch",
+    "price": 45.99,
+    "category": "Electronics",
+    "description": "A sleek smart watch that keeps you connected on the go thanks to a personal smart assistant.",
+    "image": "./images/blue-smart-watch.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Blue T-Shirt",
+    "price": 8.95,
+    "category": "Clothing",
+    "description": "This smooth cotton T-shirt features a crew collar and short sleeves.",
+    "image": "./images/blue-t-shirt.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Purple T-Shirt",
+    "price": 8.95,
+    "category": "Clothing",
+    "description": "This smooth cotton T-shirt features a crew collar and short sleeves.",
+    "image": "./images/bright-purple-t-shirt.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Red Clutch",
+    "price": 115.0,
+    "category": "Accessories",
+    "description": "Made from 100% genuine leather, the slim and lightweight profile works for keeping your essentials close by without the bulk.",
+    "image": "./images/bright-red-purse-with-gold.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Buddha Bracelet",
+    "price": 17.95,
+    "category": "Accessories",
+    "description": "A Buddha charm with stretch beaded bracelet.",
+    "image": "./images/buddha-bracelet.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Gold Necklace",
+    "price": 42.99,
+    "category": "Accessories",
+    "description": "Elegant, lightweight 14 karat gold necklace.",
+    "image": "./images/dainty-gold-necklace.jpg"
+  }
+]

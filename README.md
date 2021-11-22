@@ -18,4 +18,4 @@ npm start
 - React
 - styled-components
 - React Router
-- Dummy Products API
+- The Louvre Collections Database

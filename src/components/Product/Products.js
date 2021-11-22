@@ -10,62 +10,6 @@ const Products = (props) => {
   const [categories, setCategories] = useState([]);
 
   // Functions
-  const fetchItems = async () => {
-    const itemsResponse = await fetch(
-      `https://dummyproducts-api.herokuapp.com/api/v1/products`
-    );
-    const items = await itemsResponse.json();
-
-    console.log(items);
-  };
-
-  // const fetchAPI = async () => {
-  //   try {
-  //     const [productResponse, categoryResponse] = await Promise.all([
-  //       fetch(`https://fakestoreapi.com/products`),
-  //       fetch(`https://fakestoreapi.com/products/categories`),
-  //     ]);
-
-  //     // Error in fetch
-  //     if (!productResponse.ok) {
-  //       const msg = `An error has occured: ${productResponse.status}`;
-  //       throw new Error(msg);
-  //     }
-  //     if (!categoryResponse.ok) {
-  //       const msg = `An error has occured: ${categoryResponse.status}`;
-  //       throw new Error(msg);
-  //     }
-
-  //     const products = await productResponse.json();
-  //     const categories = await categoryResponse.json();
-
-  //     setProducts(products);
-  //     setCategories(categories);
-  //     setProductDisplay(products);
-
-  //     // console.log("content", productDisplay);
-  //     // console.log(categories);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
-
-  const filterHandler = (e) => {
-    const { id } = e.target;
-    // console.log(id);
-    if (id === "all") setProductDisplay(products);
-    else
-      setProductDisplay(
-        products.filter((product) => {
-          return product.category === id;
-        })
-      );
-  };
-
-  useEffect(() => {
-    fetchItems();
-    // fetchAPI();
-  }, []);
 
   let menu = categories.map((category) => {
     return (
