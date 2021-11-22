@@ -7,10 +7,15 @@ const ProductMenu = (props) => {
     .map((product) => product.category)
     .filter((val, index, arr) => arr.indexOf(val) === index);
 
+  const capitalize = (string) => {
+    const arr = string.toLowerCase().split("");
+    return arr[0].toUpperCase() + arr.slice(1).join("");
+  };
+
   const menu = categories.map((category) => {
     return (
       <MenuItem id={category} onClick={props.onCategoryClick}>
-        {category}
+        {capitalize(category)}
       </MenuItem>
     );
   });
@@ -18,7 +23,7 @@ const ProductMenu = (props) => {
   return (
     <MenuContainer>
       <MenuItem id="all" onClick={props.onCategoryClick}>
-        all
+        All
       </MenuItem>
       {menu}
     </MenuContainer>
