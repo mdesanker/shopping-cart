@@ -2,37 +2,40 @@ import React, { Fragment, useEffect, useState } from "react";
 import styled from "styled-components";
 import ItemCard from "./ItemCard";
 import productData from "../../assets/catalog.json";
+import ProductMenu from "./ProductMenu";
 
 const Products = (props) => {
   // States
   const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState("");
+  const [displayCategory, setDisplayCategory] = useState([]);
 
   useEffect(() => {
     setProducts(productData);
   }, []);
 
-  console.log(products);
+  // console.log(products);
 
   // Functions
+  useEffect(() => {
+    console.log(displayCategory);
+  }, [displayCategory]);
 
-  // let menu = categories.map((category) => {
-  //   return (
-  //     <Button id={category} key={uniqid()} onClick={filterHandler}>
-  //       {category}
-  //     </Button>
-  //   );
-  // });
+  const setCategoryHandler = (e) => {
+    const { id } = e.target;
+    setDisplayCategory(() => {
+      return products.filter((product) => product.category === id);
+    });
+  };
+
+  const content = products.map((item) => {
+    return <ItemCard key={item.id} info={item} onAddItem={props.onAdd} />;
+  });
 
   return (
     <Main>
       <DisplayContainer>
-        {/* <MenuContainer>
-          <p>Categories</p>
-          <Button id="all" onClick={filterHandler}>
-            all
-          </Button>
-          {menu}
-        </MenuContainer> */}
+        <ProductMenu onCategoryClick={setCategoryHandler} />
         <CardContainer>
           {products.map((item) => {
             return (
@@ -48,6 +51,7 @@ const Products = (props) => {
 
 // styled components
 const Main = styled.main`
+  padding-top: 100px;
   display: flex;
   flex-direction: column;
   max-width: 1600px;

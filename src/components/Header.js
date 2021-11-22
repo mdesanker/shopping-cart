@@ -33,6 +33,9 @@ const Header = (props) => {
 };
 
 const HeaderContainer = styled.header`
+  position: fixed;
+  background-color: gray;
+  width: 100%;
   display: flex;
   justify-content: center;
   height: 70px;
