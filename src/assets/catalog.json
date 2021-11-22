@@ -67,7 +67,7 @@
     "id": 8,
     "name": "Buddha Bracelet",
     "price": 17.95,
-    "category": "accessories",
+    "category": "jewelry",
     "description": "A Buddha charm with stretch beaded bracelet.",
     "image": "./images/buddha-bracelet.jpg"
   },
@@ -75,7 +75,7 @@
     "id": 9,
     "name": "Gold Necklace",
     "price": 42.99,
-    "category": "accessories",
+    "category": "jewelry",
     "description": "Elegant, lightweight 14 karat gold necklace.",
     "image": "./images/dainty-gold-necklace.jpg"
   }

@@ -1,26 +1,26 @@
 import styled from "styled-components";
+import productData from "../../assets/catalog.json";
 
 const ProductMenu = (props) => {
+  // Get list of unique categories
+  const categories = productData
+    .map((product) => product.category)
+    .filter((val, index, arr) => arr.indexOf(val) === index);
+
+  const menu = categories.map((category) => {
+    return (
+      <MenuItem id={category} onClick={props.onCategoryClick}>
+        {category}
+      </MenuItem>
+    );
+  });
+
   return (
     <MenuContainer>
       <MenuItem id="all" onClick={props.onCategoryClick}>
-        All
+        all
       </MenuItem>
-      <MenuItem id="clothing" onClick={props.onCategoryClick}>
-        Clothing
-      </MenuItem>
-      <MenuItem id="shoes" onClick={props.onCategoryClick}>
-        Shoes
-      </MenuItem>
-      <MenuItem id="accessories" onClick={props.onCategoryClick}>
-        Accessories
-      </MenuItem>
-      <MenuItem id="jewelry" onClick={props.onCategoryClick}>
-        Jewelry
-      </MenuItem>
-      <MenuItem id="electronics" onClick={props.onCategoryClick}>
-        Electronics
-      </MenuItem>
+      {menu}
     </MenuContainer>
   );
 };

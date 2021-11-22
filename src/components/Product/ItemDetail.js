@@ -56,6 +56,7 @@ const ItemContainer = styled.main`
   display: flex;
   max-width: 1600px;
   margin: 0 auto 50px;
+  padding-top: 100px;
 `;
 
 const ImageContainer = styled.div`
