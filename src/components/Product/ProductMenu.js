@@ -9,6 +9,9 @@ const ProductMenu = (props) => {
       <MenuItem id="clothing" onClick={props.onCategoryClick}>
         Clothing
       </MenuItem>
+      <MenuItem id="shoes" onClick={props.onCategoryClick}>
+        Shoes
+      </MenuItem>
       <MenuItem id="accessories" onClick={props.onCategoryClick}>
         Accessories
       </MenuItem>
