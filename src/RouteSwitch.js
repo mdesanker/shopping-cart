@@ -15,6 +15,7 @@ const RouteSwitch = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [subTotal, setSubTotal] = useState(0);
 
   // Functions
   const quantityChangeHandler = (e) => {
@@ -67,6 +68,7 @@ const RouteSwitch = () => {
         });
       });
     }
+    // console.log(cart);
 
     setQuantity(1);
     openCartHandler();
@@ -77,11 +79,16 @@ const RouteSwitch = () => {
     setCart((prevState) => {
       return prevState.filter((entry) => entry.item.id !== Number.parseInt(id));
     });
-    console.log(cart);
+    // console.log(cart);
   };
 
   useEffect(() => {
-    // console.log("cart", cart);
+    setSubTotal(
+      cart.length > 0 &&
+        cart
+          .map((entry) => entry.item.price * entry.number)
+          .reduce((acc, val) => acc + val, 0)
+    );
   }, [cart]);
 
   return (
@@ -91,6 +98,7 @@ const RouteSwitch = () => {
       {isCartOpen && (
         <Cart
           info={cart}
+          price={subTotal}
           onCloseCart={closeCartHandler}
           onDeleteItem={removeFromCartHandler}
         />
