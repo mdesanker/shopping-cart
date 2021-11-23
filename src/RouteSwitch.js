@@ -20,7 +20,7 @@ const RouteSwitch = () => {
     setQuantity(value);
   };
 
-  console.log(quantity);
+  // console.log(quantity);
 
   const openCartHandler = () => {
     setIsCartOpen(true);
@@ -32,19 +32,51 @@ const RouteSwitch = () => {
 
   const addToCartHandler = (e) => {
     const { id } = e.target;
-    setCart((prevState) => [
-      ...prevState,
-      {
-        item: productData[Number.parseInt(id)],
-        number: Number.parseInt(quantity),
-      },
-    ]);
+    // Check if item already existing in cart
+    const itemIndex = cart
+      .map((entry) => entry.item)
+      .indexOf(productData[Number.parseInt(id)]);
+
+    // If not in cart, add to cart
+    if (itemIndex === -1) {
+      setCart((prevState) => {
+        return [
+          ...prevState,
+          {
+            item: productData[Number.parseInt(id)],
+            number: Number.parseInt(quantity),
+          },
+        ];
+      });
+
+      // If in cart, increase quantity
+    } else {
+      const newQuantity = cart[itemIndex].number + Number.parseInt(quantity);
+      // console.log(newQuantity);
+
+      setCart((prevState) => {
+        return prevState.map((entry, index) => {
+          if (index !== itemIndex) {
+            return entry;
+          } else {
+            return {
+              item: productData[Number.parseInt(id)],
+              number: newQuantity,
+            };
+          }
+        });
+      });
+      // console.log(cart);
+
+      // console.log("item in cart already");
+    }
+
     setQuantity(1);
     openCartHandler();
   };
 
   useEffect(() => {
-    console.log("cart", cart);
+    // console.log("cart", cart);
   }, [cart]);
 
   return (

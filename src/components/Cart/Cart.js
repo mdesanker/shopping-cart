@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 import { Fragment } from "react";
+import uniqid from "uniqid";
 
 const CartContent = (props) => {
   return (
@@ -12,9 +13,7 @@ const CartContent = (props) => {
       {props.cartInfo &&
         props.cartInfo.map((item) => {
           return (
-            <p key={item.item.id}>
-              {`${item.item.name}  (Qty: ${item.number})`}
-            </p>
+            <p key={uniqid()}>{`${item.item.name}  (Qty: ${item.number})`}</p>
           );
         })}
     </CartContainer>
