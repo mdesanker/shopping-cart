@@ -11,7 +11,11 @@ const CartContent = (props) => {
       <h1>Your Cart</h1>
       {props.cartInfo &&
         props.cartInfo.map((item) => {
-          return <p>{item.name}</p>;
+          return (
+            <p key={item.item.id}>
+              {`${item.item.name}  (Qty: ${item.number})`}
+            </p>
+          );
         })}
     </CartContainer>
   );

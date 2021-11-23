@@ -13,6 +13,14 @@ import productData from "./assets/catalog.json";
 const RouteSwitch = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+
+  const quantityChangeHandler = (e) => {
+    const { value } = e.target;
+    setQuantity(value);
+  };
+
+  console.log(quantity);
 
   const openCartHandler = () => {
     setIsCartOpen(true);
@@ -24,7 +32,13 @@ const RouteSwitch = () => {
 
   const addToCartHandler = (e) => {
     const { id } = e.target;
-    setCart((prevState) => [...prevState, productData[Number.parseInt(id)]]);
+    setCart((prevState) => [
+      ...prevState,
+      {
+        item: productData[Number.parseInt(id)],
+        number: Number.parseInt(quantity),
+      },
+    ]);
     openCartHandler();
   };
 
@@ -43,7 +57,12 @@ const RouteSwitch = () => {
         <Route path="/contact" element={<Contact />} />
         <Route
           path="/products/:id"
-          element={<ItemDetail onAdd={addToCartHandler} />}
+          element={
+            <ItemDetail
+              onAdd={addToCartHandler}
+              onChangeQuantity={quantityChangeHandler}
+            />
+          }
         />
       </Routes>
       <Footer />

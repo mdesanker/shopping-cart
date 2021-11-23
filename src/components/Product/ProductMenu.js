@@ -14,7 +14,7 @@ const ProductMenu = (props) => {
 
   const menu = categories.map((category) => {
     return (
-      <MenuItem id={category} onClick={props.onCategoryClick}>
+      <MenuItem key={category} id={category} onClick={props.onCategoryClick}>
         {capitalize(category)}
       </MenuItem>
     );

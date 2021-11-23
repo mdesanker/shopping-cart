@@ -28,7 +28,11 @@ const ItemDetail = (props) => {
         <p>{item.description}</p>
         <Price>{item.price && `$ ${item.price.toFixed(2)}`}</Price>
         <AddContainer>
-          <select name="quantity" id="quantity">
+          <select
+            name="quantity"
+            id="quantity"
+            onChange={props.onChangeQuantity}
+          >
             <option value="1" defaultValue>
               1
             </option>
