@@ -11,16 +11,16 @@ import Cart from "./components/Cart/Cart";
 import productData from "./assets/catalog.json";
 
 const RouteSwitch = () => {
+  // States
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(1);
 
+  // Functions
   const quantityChangeHandler = (e) => {
     const { value } = e.target;
     setQuantity(value);
   };
-
-  // console.log(quantity);
 
   const openCartHandler = () => {
     setIsCartOpen(true);
@@ -32,6 +32,7 @@ const RouteSwitch = () => {
 
   const addToCartHandler = (e) => {
     const { id } = e.target;
+
     // Check if item already existing in cart
     const itemIndex = cart
       .map((entry) => entry.item)
@@ -52,7 +53,6 @@ const RouteSwitch = () => {
       // If in cart, increase quantity
     } else {
       const newQuantity = cart[itemIndex].number + Number.parseInt(quantity);
-      // console.log(newQuantity);
 
       setCart((prevState) => {
         return prevState.map((entry, index) => {
@@ -66,9 +66,6 @@ const RouteSwitch = () => {
           }
         });
       });
-      // console.log(cart);
-
-      // console.log("item in cart already");
     }
 
     setQuantity(1);

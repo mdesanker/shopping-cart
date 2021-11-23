@@ -1,24 +1,6 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 import { Fragment } from "react";
-import uniqid from "uniqid";
-
-const CartContent = (props) => {
-  return (
-    <CartContainer>
-      <CloseButton onClick={props.onCloseCartClick}>
-        <i className="fas fa-times" />
-      </CloseButton>
-      <h1>Your Cart</h1>
-      {props.cartInfo &&
-        props.cartInfo.map((item) => {
-          return (
-            <p key={uniqid()}>{`${item.item.name}  (Qty: ${item.number})`}</p>
-          );
-        })}
-    </CartContainer>
-  );
-};
 
 const Cart = (props) => {
   return (
@@ -37,6 +19,49 @@ const Cart = (props) => {
     </Fragment>
   );
 };
+
+const CartContent = (props) => {
+  return (
+    <CartContainer>
+      <CloseButton onClick={props.onCloseCartClick}>
+        <i className="fas fa-times" />
+      </CloseButton>
+      <h1>Your Cart</h1>
+      {props.cartInfo &&
+        props.cartInfo.map((item) => {
+          return <CartEntry key={item.item.id} info={item} />;
+        })}
+    </CartContainer>
+  );
+};
+
+const CartEntry = (props) => {
+  console.log(props.info);
+  return (
+    <CartEntryContainer key={props.info.item.id}>
+      <div>
+        <h3>{props.info.item.name}</h3>
+        <p>Qty: {props.info.number}</p>
+      </div>
+      <button>X</button>
+    </CartEntryContainer>
+  );
+};
+
+const CartEntryContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 10px;
+  border-bottom: thin solid gray;
+
+  button {
+    font-size: 1.2rem;
+    padding: 2px;
+    background-color: transparent;
+    border: none;
+  }
+`;
 
 const CloseButton = styled.button`
   font-size: 2rem;
