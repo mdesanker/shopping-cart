@@ -78,5 +78,133 @@
     "category": "jewelry",
     "description": "Elegant, lightweight 14 karat gold necklace.",
     "image": "./images/dainty-gold-necklace.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Elephant Earrings",
+    "price": 16.99,
+    "category": "jewelry",
+    "description": "Elephants are one of the oldest symbols of luck, make a wish, put these on, and always remember you are happier, luckier, and more loved than you think.",
+    "image": "./images/elephant-earrings.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Galaxy Earrings",
+    "price": 12.99,
+    "category": "jewelry",
+    "description": "These earrings are out of this world.",
+    "image": "./images/galaxy-earrings.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Black Fashion Backpack",
+    "price": 24.99,
+    "category": "accessories",
+    "description": "Cute, fashionable backpack perfect for weekend getaway, college, shopping, or any other activity.",
+    "image": "./images/gold-zipper-on-black-fashion-backpack.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Green Teapot",
+    "price": 22.49,
+    "category": "home",
+    "description": "Beautiful, glazed ceramic teapot.",
+    "image": "./images/green-teapot.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Green T-Shirt",
+    "price": 8.95,
+    "category": "clothing",
+    "description": "This smooth cotton T-shirt features a crew collar and short sleeves.",
+    "image": "./images/green-t-shirt.jpg"
+  },
+  {
+    "id": 15,
+    "name": "Hand Balm",
+    "price": 6.95,
+    "category": "accessories",
+    "description": "Fight dry, cracked hands with this moisturizing balm.",
+    "image": "./images/hand-balm.jpg"
+  },
+  {
+    "id": 16,
+    "name": "House Plant in Pot",
+    "price": 24.95,
+    "category": "home",
+    "description": "Perfect plant and pot to breathe life into your home.",
+    "image": "./images/house-plant-in-white-pot.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Ladder Shelf",
+    "price": 69.95,
+    "category": "home",
+    "description": "This stylish ladder shelf can hold anything from pictures, to plants, to books.",
+    "image": "./images/ladder-shelf.jpg"
+  },
+  {
+    "id": 18,
+    "name": "Leather Stool",
+    "price": 79.95,
+    "category": "home",
+    "description": "Perfect stool for any bar or table.",
+    "image": "./images/leather-seat-stool.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Bamboo Watch",
+    "price": 44.95,
+    "category": "electronics",
+    "description": "Minimalist wristwatch with a case made from bamboo.",
+    "image": "./images/modern-bamboo-wristwatch.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Mustard Chair",
+    "price": 94.99,
+    "category": "home",
+    "description": "A comfortable accent piece for any room.",
+    "image": "./images/mustard-chair.jpg"
+  },
+  {
+    "id": 21,
+    "name": "Skate Shoes",
+    "price": 32.95,
+    "category": "shoes",
+    "description": "Stylish, yet comfortable shoes for skating down the boardwalk or strolling around town.",
+    "image": "./images/navy-blue-skate-shoes.jpg"
+  },
+  {
+    "id": 22,
+    "name": "Headphones",
+    "price": 129.95,
+    "category": "electronics",
+    "description": "Comfortable, sleek headphones will cancel out any background noise to improve your listening experience.",
+    "image": "./images/noise-cancelling-headphones.jpg"
+  },
+  {
+    "id": 23,
+    "name": "Fitness Tracker",
+    "price": 54.95,
+    "category": "electronics",
+    "description": "Track your steps, calories burned, and more to reach your fitness goals.",
+    "image": "./images/pink-fitness-tracker.jpg"
+  },
+  {
+    "id": 24,
+    "name": "Light Up Shoes",
+    "price": 74.95,
+    "category": "shoes",
+    "description": "These kicks light up as you walk.",
+    "image": "./images/red-LED-shoes.jpg"
+  },
+  {
+    "id": 25,
+    "name": "Controller",
+    "price": 69.95,
+    "category": "electronics",
+    "description": "A controller for playing games on your PC.",
+    "image": "./images/video-game-controller-top.jpg"
   }
 ]
