@@ -39,6 +39,7 @@ const RouteSwitch = () => {
         number: Number.parseInt(quantity),
       },
     ]);
+    setQuantity(1);
     openCartHandler();
   };
 
@@ -59,6 +60,7 @@ const RouteSwitch = () => {
           path="/products/:id"
           element={
             <ItemDetail
+              num={quantity}
               onAdd={addToCartHandler}
               onChangeQuantity={quantityChangeHandler}
             />

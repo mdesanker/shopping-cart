@@ -31,6 +31,7 @@ const ItemDetail = (props) => {
           <select
             name="quantity"
             id="quantity"
+            value={props.num}
             onChange={props.onChangeQuantity}
           >
             <option value="1" defaultValue>
