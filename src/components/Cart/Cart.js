@@ -6,34 +6,12 @@ const CartContent = (props) => {
   const [cartIDs, setCartIDs] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
-  // console.log("cart", props.cartInfo);
+  console.log("cart items", props.cartDetails);
 
   useEffect(() => {
-    setCartIDs(props.cartInfo);
-
-    const fetchItem = async (id) => {
-      try {
-        const itemResponse = await fetch(
-          `https://fakestoreapi.com/products/${id}`
-        );
-        const itemData = await itemResponse.json();
-
-        console.log("cart", itemData);
-        // setCartItems((prevState) => {
-        //   return [...prevState, itemData];
-        // });
-        // console.log(cartItems);
-      } catch (error) {
-        console.log(error.message);
-      }
-    };
-
-    // cartIDs.forEach((id) => {
-    //   fetchItem(id);
-    // });
-
-    fetchItem(cartIDs.at(-1));
-  }, [props.cartInfo]);
+    setCartIDs(props.cartDetails);
+    console.log("IDs", cartIDs);
+  }, []);
 
   return (
     <CartContainer>

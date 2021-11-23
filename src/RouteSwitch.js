@@ -6,8 +6,9 @@ import GlobalStyle from "./themes/GlobalStyles";
 import Footer from "./components/Footer";
 import Contact from "./components/Contact";
 import ItemDetail from "./components/Product/ItemDetail";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Cart from "./components/Cart/Cart";
+import productData from "./assets/catalog.json";
 
 const RouteSwitch = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -23,10 +24,13 @@ const RouteSwitch = () => {
 
   const addToCartHandler = (e) => {
     const { id } = e.target;
-    // console.log("ID selected", id);
-    setCart((prevState) => [...prevState, id]);
+    setCart((prevState) => [...prevState, productData[Number.parseInt(id)]]);
     openCartHandler();
   };
+
+  useEffect(() => {
+    console.log("cart", cart);
+  }, [cart]);
 
   return (
     <Router>
