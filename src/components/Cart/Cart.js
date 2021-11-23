@@ -1,27 +1,17 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 
 const CartContent = (props) => {
-  const [cartIDs, setCartIDs] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
-
-  console.log("cart items", props.cartDetails);
-
-  useEffect(() => {
-    setCartIDs(props.cartDetails);
-    console.log("IDs", cartIDs);
-  }, []);
-
   return (
     <CartContainer>
       <CloseButton onClick={props.onCloseCartClick}>
         <i className="fas fa-times" />
       </CloseButton>
       <h1>Your Cart</h1>
-      {cartIDs &&
-        cartIDs.map((item) => {
-          return <p key={item}>{item}</p>;
+      {props.cartInfo &&
+        props.cartInfo.map((item) => {
+          return <p>{item.name}</p>;
         })}
     </CartContainer>
   );
@@ -33,7 +23,7 @@ const Cart = (props) => {
       {ReactDOM.createPortal(
         <CartContent
           onCloseCartClick={props.onCloseCart}
-          cartInfo={props.cartDetails}
+          cartInfo={props.info}
         />,
         document.querySelector("#cart")
       )}
@@ -57,7 +47,7 @@ const CloseButton = styled.button`
 `;
 
 const CartContainer = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   height: 100vh;

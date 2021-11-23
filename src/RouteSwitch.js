@@ -36,7 +36,7 @@ const RouteSwitch = () => {
     <Router>
       <GlobalStyle />
       <Header onOpenCart={openCartHandler} />
-      {isCartOpen && <Cart cartDetails={cart} onCloseCart={closeCartHandler} />}
+      {isCartOpen && <Cart info={cart} onCloseCart={closeCartHandler} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
@@ -45,10 +45,6 @@ const RouteSwitch = () => {
           path="/products/:id"
           element={<ItemDetail onAdd={addToCartHandler} />}
         />
-        {/* <Route
-          path="/products/:id"
-          render={({ match }) => <ItemDetail id={match.params.id} />}
-        /> */}
       </Routes>
       <Footer />
     </Router>
