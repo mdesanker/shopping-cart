@@ -72,6 +72,14 @@ const RouteSwitch = () => {
     openCartHandler();
   };
 
+  const removeFromCartHandler = (e) => {
+    const { id } = e.target;
+    setCart((prevState) => {
+      return prevState.filter((entry) => entry.item.id !== Number.parseInt(id));
+    });
+    console.log(cart);
+  };
+
   useEffect(() => {
     // console.log("cart", cart);
   }, [cart]);
@@ -80,7 +88,13 @@ const RouteSwitch = () => {
     <Router>
       <GlobalStyle />
       <Header onOpenCart={openCartHandler} />
-      {isCartOpen && <Cart info={cart} onCloseCart={closeCartHandler} />}
+      {isCartOpen && (
+        <Cart
+          info={cart}
+          onCloseCart={closeCartHandler}
+          onDeleteItem={removeFromCartHandler}
+        />
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />

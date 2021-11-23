@@ -9,6 +9,7 @@ const Cart = (props) => {
         <CartContent
           onCloseCartClick={props.onCloseCart}
           cartInfo={props.info}
+          onRemoveItem={props.onDeleteItem}
         />,
         document.querySelector("#cart")
       )}
@@ -29,21 +30,29 @@ const CartContent = (props) => {
       <h1>Your Cart</h1>
       {props.cartInfo &&
         props.cartInfo.map((item) => {
-          return <CartEntry key={item.item.id} info={item} />;
+          return (
+            <CartEntry
+              key={item.item.id}
+              info={item}
+              onCancelItem={props.onRemoveItem}
+            />
+          );
         })}
     </CartContainer>
   );
 };
 
 const CartEntry = (props) => {
-  console.log(props.info);
+  // console.log(props.info);
   return (
     <CartEntryContainer key={props.info.item.id}>
       <div>
         <h3>{props.info.item.name}</h3>
         <p>Qty: {props.info.number}</p>
       </div>
-      <button>X</button>
+      <button id={props.info.item.id} onClick={props.onCancelItem}>
+        X
+      </button>
     </CartEntryContainer>
   );
 };
