@@ -28,23 +28,23 @@ const RouteSwitch = () => {
     const { itemid, oper } = e.target.dataset;
     console.log(oper, itemid);
 
+    // Modify number for selected item
     setCart((prevState) => {
       return prevState.map((entry) => {
+        // Leave other items unchanged
         if (entry.item.id.toString() !== itemid) {
-          console.log("item not selected.");
-          console.log(entry);
           return entry;
+
+          // Overwrite item with new quantity
         } else {
           if (oper === "dec") {
             const newQuantity = entry.number - 1;
-            console.log(newQuantity);
             return {
               item: productData[Number.parseInt(itemid)],
               number: newQuantity,
             };
           } else {
             const newQuantity = entry.number + 1;
-            console.log(newQuantity);
             return {
               item: productData[Number.parseInt(itemid)],
               number: newQuantity,
@@ -52,6 +52,11 @@ const RouteSwitch = () => {
           }
         }
       });
+    });
+
+    // Filter out items with quantity <= 0
+    setCart((prevState) => {
+      return prevState.filter((entry) => entry.number > 0);
     });
   };
 
