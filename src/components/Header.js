@@ -11,7 +11,9 @@ const Header = (props) => {
     <HeaderContainer>
       <Nav>
         <NavLink to="/">
-          <h3>Logo</h3>
+          <Logo>
+            Shop<span>Store</span>
+          </Logo>
         </NavLink>
         <NavUnordered>
           {links.map((link) => {
@@ -34,12 +36,21 @@ const Header = (props) => {
 
 const HeaderContainer = styled.header`
   position: fixed;
-  background-color: gray;
+  background-color: #e5e5e5;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 70px;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 10vh;
+  width: 100%;
+  max-width: 1200px;
 `;
 
 const NavUnordered = styled.ul`
@@ -49,6 +60,8 @@ const NavUnordered = styled.ul`
 
   & li {
     color: black;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
     list-style: none;
     padding: 20px;
   }
@@ -67,19 +80,15 @@ const NavUnordered = styled.ul`
   }
 `;
 
-const Nav = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 10vh;
-  width: 100%;
-  max-width: 1200px;
-
-  & h3 {
-    color: black;
-    padding: 20px;
-    letter-spacing: 0.1rem;
-  }
+const Logo = styled.h3`
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  color: black;
+  padding: 5px;
+  text-transform: uppercase;
+  border: 2px solid black;
+  margin: 5px 20px;
 `;
 
 export default Header;

@@ -18,4 +18,4 @@ npm start
 - React
 - styled-components
 - React Router
-- The Louvre Collections Database
+- Images from burst.shopify.com (public domain image source)
