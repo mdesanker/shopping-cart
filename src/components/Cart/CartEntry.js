@@ -11,7 +11,7 @@ const CartEntry = (props) => {
         <h3>${props.info.item.price.toFixed(2)}</h3>
         <p>Qty: {props.info.number}</p>
         <QuantityModifier
-          id={props.info.item.id}
+          entry={props.info}
           onItemChange={props.onQuantityChange}
         />
       </div>

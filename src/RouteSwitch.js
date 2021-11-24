@@ -24,8 +24,35 @@ const RouteSwitch = () => {
   };
 
   const quantityIncrementHandler = (e) => {
-    const { id, name } = e.target;
-    console.log(id, name);
+    // Get item id and operation to perform
+    const { itemid, oper } = e.target.dataset;
+    console.log(oper, itemid);
+
+    setCart((prevState) => {
+      return prevState.map((entry) => {
+        if (entry.item.id.toString() !== itemid) {
+          console.log("item not selected.");
+          console.log(entry);
+          return entry;
+        } else {
+          if (oper === "dec") {
+            const newQuantity = entry.number - 1;
+            console.log(newQuantity);
+            return {
+              item: productData[Number.parseInt(itemid)],
+              number: newQuantity,
+            };
+          } else {
+            const newQuantity = entry.number + 1;
+            console.log(newQuantity);
+            return {
+              item: productData[Number.parseInt(itemid)],
+              number: newQuantity,
+            };
+          }
+        }
+      });
+    });
   };
 
   const openCartHandler = () => {

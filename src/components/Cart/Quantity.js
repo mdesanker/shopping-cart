@@ -3,11 +3,19 @@ import styled from "styled-components";
 const QuantityModifier = (props) => {
   return (
     <QuantityModifierContainer>
-      <button id="-" name={props.id} onClick={props.onItemChange}>
+      <button
+        data-oper="dec"
+        data-itemid={props.entry.item.id}
+        onClick={props.onItemChange}
+      >
         -
       </button>
-      <p>1</p>
-      <button id="+" name={props.id} onClick={props.onItemChange}>
+      <p>{props.entry.number}</p>
+      <button
+        data-oper="inc"
+        data-itemid={props.entry.item.id}
+        onClick={props.onItemChange}
+      >
         +
       </button>
     </QuantityModifierContainer>
@@ -31,8 +39,8 @@ const QuantityModifierContainer = styled.div`
     padding: 0;
     width: 40px;
     height: 40px;
-    color: white;
-    background-color: gray;
+    color: black;
+    background-color: transparent;
     font-size: 1.6rem;
     font-weight: 700;
     transition: 100ms all;
