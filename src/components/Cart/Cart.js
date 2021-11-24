@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ReactDOM from "react-dom";
 import { Fragment } from "react";
+import CartEntry from "./CartEntry";
 
 const Cart = (props) => {
   // console.log(props);
@@ -44,45 +45,17 @@ const CartContent = (props) => {
           );
         })}
       <h4>{`Subtotal: $ ${props.subtotal ? props.subtotal.toFixed(2) : 0}`}</h4>
-      <button>Checkout</button>
+      <CheckoutButton>Checkout</CheckoutButton>
     </CartContainer>
   );
 };
 
-const CartEntry = (props) => {
-  // console.log(props.info);
-
-  return (
-    <CartEntryContainer key={props.info.item.id}>
-      <div>
-        <p>{props.info.item.name}</p>
-        <h3>${props.info.item.price.toFixed(2)}</h3>
-        <p>Qty: {props.info.number}</p>
-      </div>
-      <button id={props.info.item.id} onClick={props.onCancelItem}>
-        X
-      </button>
-    </CartEntryContainer>
-  );
-};
-
-const CartEntryContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 10px;
-  border-bottom: thin solid gray;
-  // border: 1px solid red;
-
-  button {
-    position: relative;
-    top: -25px;
-    right: 0px;
-    font-size: 1.2rem;
-    padding: 2px;
-    background-color: transparent;
-    border: none;
-  }
+const CheckoutButton = styled.button`
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  padding: 10px;
+  margin-top: 20px;
 `;
 
 const CloseButton = styled.button`
@@ -109,23 +82,15 @@ const CartContainer = styled.div`
 
   z-index: 100;
 
-  h1 {
+  & h1 {
     padding-bottom: 20px;
     border-bottom: thin solid gray;
     margin-bottom: 10px;
   }
 
-  h4 {
+  & h4 {
     padding-top: 20px;
     text-align: right;
-  }
-
-  button {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.3rem;
-    padding: 10px;
-    margin-top: 20px;
   }
 `;
 
