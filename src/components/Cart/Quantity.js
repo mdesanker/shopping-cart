@@ -3,9 +3,13 @@ import styled from "styled-components";
 const QuantityModifier = (props) => {
   return (
     <QuantityModifierContainer>
-      <button>-</button>
+      <button id="-" name={props.id} onClick={props.onItemChange}>
+        -
+      </button>
       <p>1</p>
-      <button>+</button>
+      <button id="+" name={props.id} onClick={props.onItemChange}>
+        +
+      </button>
     </QuantityModifierContainer>
   );
 };
@@ -36,7 +40,7 @@ const QuantityModifierContainer = styled.div`
 
   & button:hover {
     color: black;
-    background-color: white;
+    background-color: #f5f5f5;
   }
 `;
 

@@ -14,6 +14,7 @@ const Cart = (props) => {
           cartInfo={props.info}
           subtotal={props.price}
           onRemoveItem={props.onDeleteItem}
+          onChangeItem={props.onModifyItem}
         />,
         document.querySelector("#cart")
       )}
@@ -41,6 +42,7 @@ const CartContent = (props) => {
               key={item.item.id}
               info={item}
               onCancelItem={props.onRemoveItem}
+              onQuantityChange={props.onChangeItem}
             />
           );
         })}

@@ -10,7 +10,10 @@ const CartEntry = (props) => {
         <p>{props.info.item.name}</p>
         <h3>${props.info.item.price.toFixed(2)}</h3>
         <p>Qty: {props.info.number}</p>
-        <QuantityModifier />
+        <QuantityModifier
+          id={props.info.item.id}
+          onItemChange={props.onQuantityChange}
+        />
       </div>
       <button id={props.info.item.id} onClick={props.onCancelItem}>
         X

@@ -23,6 +23,11 @@ const RouteSwitch = () => {
     setQuantity(value);
   };
 
+  const quantityIncrementHandler = (e) => {
+    const { id, name } = e.target;
+    console.log(id, name);
+  };
+
   const openCartHandler = () => {
     setIsCartOpen(true);
   };
@@ -101,6 +106,7 @@ const RouteSwitch = () => {
           price={subTotal}
           onCloseCart={closeCartHandler}
           onDeleteItem={removeFromCartHandler}
+          onModifyItem={quantityIncrementHandler}
         />
       )}
       <Routes>
