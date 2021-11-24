@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Home = () => {
@@ -9,7 +10,9 @@ const Home = () => {
           <HomeLogo>ShopStore</HomeLogo>
           <Slogan>The one stop shop for all your store needs</Slogan>
         </div>
-        <ShopButton type="button">Shop</ShopButton>
+        <Link to="/products">
+          <ShopButton type="button">Shop</ShopButton>
+        </Link>
       </LandingContainer>
     </HomeContainer>
   );

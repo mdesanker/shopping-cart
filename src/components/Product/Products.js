@@ -7,19 +7,29 @@ import ProductMenu from "./ProductMenu";
 const Products = (props) => {
   // States
   const [products, setProducts] = useState(productData);
+  const [selectedCat, setSelectedCat] = useState("all");
 
   const setCategoryHandler = (e) => {
     const { id } = e.target;
+    console.log(id);
     setProducts(() => {
       if (id === "all") return productData;
       else return productData.filter((product) => product.category === id);
     });
+    setSelectedCat(id);
   };
+
+  // const setSelectedCategoryHandler = (e) => {
+  //   const { id } = e.target;
+  // };
 
   return (
     <Main>
       <DisplayContainer>
-        <ProductMenu onCategoryClick={setCategoryHandler} />
+        <ProductMenu
+          category={selectedCat}
+          onCategoryClick={setCategoryHandler}
+        />
         <CardContainer>
           {products.map((item) => {
             return (
