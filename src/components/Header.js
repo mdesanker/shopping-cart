@@ -36,6 +36,8 @@ const Header = (props) => {
 
 const HeaderContainer = styled.header`
   position: fixed;
+  top: 0;
+  left: 0;
   background-color: #e5e5e5;
   width: 100%;
   display: flex;

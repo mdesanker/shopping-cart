@@ -9,12 +9,14 @@ const Footer = () => {
 };
 
 const FooterContainer = styled.footer`
-  position: absolute;
+  position: fixed;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   bottom: 0;
+  height: 40px;
+  background-color: white;
 
   & p {
     padding: 5px;
