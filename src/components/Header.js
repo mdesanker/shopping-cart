@@ -11,9 +11,7 @@ const Header = (props) => {
     <HeaderContainer>
       <Nav>
         <NavLink to="/">
-          <Logo>
-            Shop<span>Store</span>
-          </Logo>
+          <Logo>ShopStore</Logo>
         </NavLink>
         <NavUnordered>
           {links.map((link) => {
@@ -23,16 +21,61 @@ const Header = (props) => {
               </NavLink>
             );
           })}
-          <li>
-            <button onClick={props.onOpenCart}>
-              <i className="fas fa-shopping-cart"></i>
-            </button>
-          </li>
+          <CartButton onClick={props.onOpenCart}>
+            <i className="fas fa-shopping-cart"></i>
+            <Counter>1</Counter>
+            {/* <CartIcon /> */}
+          </CartButton>
         </NavUnordered>
       </Nav>
     </HeaderContainer>
   );
 };
+
+const Counter = styled.p`
+  position: relative;
+  top: -8px;
+  left: -8px;
+
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  background-color: red;
+
+  z-index: 10;
+`;
+
+const CartButton = styled.button`
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
+`;
+
+// const CartIcon = (props) => {
+//   return (
+//     <IconContainer>
+//       <i className="fas fa-shopping-cart"></i>
+//     </IconContainer>
+//   );
+// };
+
+// const IconContainer = styled.div`
+//   width: 60px;
+//   height: 60px;
+// `;
 
 const HeaderContainer = styled.header`
   position: fixed;
@@ -68,18 +111,18 @@ const NavUnordered = styled.ul`
     padding: 20px;
   }
 
-  .current {
-    li {
-      border-bottom: 2px solid black;
-    }
-  }
+  // .current {
+  //   li {
+  //     border-bottom: 2px solid black;
+  //   }
+  // }
 
-  button {
-    font-size: 1rem;
-    padding: 5px;
-    border: none;
-    background-color: transparent;
-  }
+  // button {
+  //   font-size: 1rem;
+  //   padding: 5px;
+  //   border: none;
+  //   background-color: transparent;
+  // }
 `;
 
 const Logo = styled.h3`

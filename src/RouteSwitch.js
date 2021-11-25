@@ -26,7 +26,7 @@ const RouteSwitch = () => {
   const quantityIncrementHandler = (e) => {
     // Get item id and operation to perform
     const { itemid, oper } = e.target.dataset;
-    console.log(oper, itemid);
+    // console.log(oper, itemid);
 
     // Modify number for selected item
     setCart((prevState) => {
