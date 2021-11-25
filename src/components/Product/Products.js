@@ -33,7 +33,6 @@ const Products = (props) => {
         <CardContainer>
           {products.map((item) => {
             return (
-              // <p>{item.name}</p>
               <ItemCard key={item.id} info={item} onAddItem={props.onAdd} />
             );
           })}

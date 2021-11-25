@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ItemCard = (props) => {
   return (
     <CardContainer>
-      <Link to={`/products/${props.info.id}`}>
+      <Link to={`/shopping-cart/products/${props.info.id}`}>
         <Card>
           <ImageContainer>
             <ProductImage src={props.info.image} alt={props.info.name} />

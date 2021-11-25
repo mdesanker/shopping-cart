@@ -139,11 +139,11 @@ const RouteSwitch = () => {
         />
       )}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/shopping-cart" element={<Home />} />
+        <Route path="/shopping-cart/products" element={<Products />} />
+        <Route path="/shopping-cart/contact" element={<Contact />} />
         <Route
-          path="/products/:id"
+          path="/shopping-cart/products/:id"
           element={
             <ItemDetail
               num={quantity}
