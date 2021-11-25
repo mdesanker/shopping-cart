@@ -14,44 +14,30 @@ const ProductMenu = (props) => {
   };
 
   const menu = categories.map((category) => {
-    // console.log(category);
-    if (category === props.category) {
-      return (
-        <ActiveMenuItem
-          key={category}
-          id={category}
-          activeClassName="selected"
-          onClick={props.onCategoryClick}
-        >
-          {capitalize(category)}
-        </ActiveMenuItem>
-      );
-    } else {
-      return (
-        <MenuItem
-          key={category}
-          id={category}
-          activeClassName="selected"
-          onClick={props.onCategoryClick}
-        >
-          {capitalize(category)}
-        </MenuItem>
-      );
-    }
+    // console.log(props.category === category);
+
+    return (
+      <MenuItem
+        key={category}
+        id={category}
+        active={props.category === category ? true : false}
+        onClick={props.onCategoryClick}
+      >
+        {capitalize(category)}
+      </MenuItem>
+    );
   });
 
   return (
     <MenuContainer>
       {/* <MenuHeader>Categories</MenuHeader> */}
-      {props.category === "all" ? (
-        <ActiveMenuItem id="all" onClick={props.onCategoryClick}>
-          All
-        </ActiveMenuItem>
-      ) : (
-        <MenuItem id="all" onClick={props.onCategoryClick}>
-          All
-        </MenuItem>
-      )}
+      <MenuItem
+        id="all"
+        active={props.category === "all" ? true : false}
+        onClick={props.onCategoryClick}
+      >
+        All
+      </MenuItem>
       {menu}
     </MenuContainer>
   );
@@ -69,7 +55,7 @@ const MenuContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
   // background-color: lightgray;
-  padding-top: 4rem;
+  padding-top: 2rem;
 `;
 
 const MenuHeader = styled.h3`
@@ -88,16 +74,11 @@ const MenuItem = styled.button`
   margin: 5px 0;
   background-color: transparent;
   border: none;
-  border-right: 4px solid transparent;
+  border-right: 4px solid ${(props) => (props.active ? "red" : "transparent")};
 
   &:hover {
     border-right: 4px solid black;
   }
-`;
-
-const ActiveMenuItem = styled(MenuItem)`
-  border-right: 4px solid red;
-  // border-bottom: 1px solid lightgray;
 `;
 
 export default ProductMenu;
