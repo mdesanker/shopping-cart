@@ -16,6 +16,7 @@ const RouteSwitch = () => {
   const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [subTotal, setSubTotal] = useState(0);
+  const [cartCount, setCartCount] = useState(0);
 
   // Functions
   const quantityChangeHandler = (e) => {
@@ -26,7 +27,6 @@ const RouteSwitch = () => {
   const quantityIncrementHandler = (e) => {
     // Get item id and operation to perform
     const { itemid, oper } = e.target.dataset;
-    // console.log(oper, itemid);
 
     // Modify number for selected item
     setCart((prevState) => {
@@ -105,7 +105,6 @@ const RouteSwitch = () => {
         });
       });
     }
-    // console.log(cart);
 
     setQuantity(1);
     openCartHandler();
@@ -116,7 +115,6 @@ const RouteSwitch = () => {
     setCart((prevState) => {
       return prevState.filter((entry) => entry.item.id !== Number.parseInt(id));
     });
-    // console.log(cart);
   };
 
   useEffect(() => {
@@ -128,10 +126,18 @@ const RouteSwitch = () => {
     );
   }, [cart]);
 
+  useEffect(() => {
+    setCartCount(() => {
+      if (cart.length > 0) {
+        cart.map((item) => item.number).reduce((acc, val) => acc + val);
+      }
+    });
+  }, [cart]);
+
   return (
     <Router>
       <GlobalStyle />
-      <Header onOpenCart={openCartHandler} />
+      <Header cartInfo={cart} onOpenCart={openCartHandler} />
       {isCartOpen && (
         <Cart
           info={cart}

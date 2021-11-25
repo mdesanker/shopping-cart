@@ -7,6 +7,10 @@ const Header = (props) => {
     { id: 2, name: "Contact", to: "/contact" },
   ];
 
+  const cartCount = props.cartInfo
+    .map((item) => item.number)
+    .reduce((acc, val) => acc + val, 0);
+
   return (
     <HeaderContainer>
       <Nav>
@@ -23,8 +27,7 @@ const Header = (props) => {
           })}
           <CartButton onClick={props.onOpenCart}>
             <i className="fas fa-shopping-cart"></i>
-            <Counter>1</Counter>
-            {/* <CartIcon /> */}
+            {cartCount > 0 && <Counter>{cartCount}</Counter>}
           </CartButton>
         </NavUnordered>
       </Nav>
@@ -64,19 +67,6 @@ const CartButton = styled.button`
   margin-right: 20px;
 `;
 
-// const CartIcon = (props) => {
-//   return (
-//     <IconContainer>
-//       <i className="fas fa-shopping-cart"></i>
-//     </IconContainer>
-//   );
-// };
-
-// const IconContainer = styled.div`
-//   width: 60px;
-//   height: 60px;
-// `;
-
 const HeaderContainer = styled.header`
   position: fixed;
   top: 0;
@@ -110,19 +100,6 @@ const NavUnordered = styled.ul`
     list-style: none;
     padding: 20px;
   }
-
-  // .current {
-  //   li {
-  //     border-bottom: 2px solid black;
-  //   }
-  // }
-
-  // button {
-  //   font-size: 1rem;
-  //   padding: 5px;
-  //   border: none;
-  //   background-color: transparent;
-  // }
 `;
 
 const Logo = styled.h3`
