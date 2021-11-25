@@ -46,18 +46,37 @@ const CartContent = (props) => {
             />
           );
         })}
-      <h4>{`Subtotal: $ ${props.subtotal ? props.subtotal.toFixed(2) : 0}`}</h4>
+      <Subtotal>{`Subtotal: $ ${
+        props.subtotal ? props.subtotal.toFixed(2) : 0
+      }`}</Subtotal>
       <CheckoutButton>Checkout</CheckoutButton>
     </CartContainer>
   );
 };
 
+const Subtotal = styled.h4`
+  width: 100%;
+  font-size: 1.1rem;
+  padding-top: 20px;
+  text-align: right;
+`;
+
 const CheckoutButton = styled.button`
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
+  font-weight: 700;
   letter-spacing: 0.3rem;
-  padding: 10px;
+  color: #e63946;
+  border: 2px solid #e63946;
+  background-color: transparent;
+  padding: 20px;
   margin-top: 20px;
+  transition: 200ms all;
+
+  &:hover {
+    color: white;
+    background-color: #e63946;
+  }
 `;
 
 const CloseButton = styled.button`
@@ -73,6 +92,9 @@ const CloseButton = styled.button`
 
 const CartContainer = styled.div`
   position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   top: 0;
   right: 0;
   height: 100vh;
@@ -85,14 +107,10 @@ const CartContainer = styled.div`
   z-index: 100;
 
   & h1 {
+    width: 100%;
     padding-bottom: 20px;
     border-bottom: thin solid gray;
     margin-bottom: 10px;
-  }
-
-  & h4 {
-    padding-top: 20px;
-    text-align: right;
   }
 `;
 
