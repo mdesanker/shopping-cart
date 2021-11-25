@@ -16,7 +16,6 @@ const RouteSwitch = () => {
   const [cart, setCart] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [subTotal, setSubTotal] = useState(0);
-  const [cartCount, setCartCount] = useState(0);
 
   // Functions
   const quantityChangeHandler = (e) => {
@@ -124,14 +123,6 @@ const RouteSwitch = () => {
           .map((entry) => entry.item.price * entry.number)
           .reduce((acc, val) => acc + val, 0)
     );
-  }, [cart]);
-
-  useEffect(() => {
-    setCartCount(() => {
-      if (cart.length > 0) {
-        cart.map((item) => item.number).reduce((acc, val) => acc + val);
-      }
-    });
   }, [cart]);
 
   return (

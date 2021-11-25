@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import productData from "../../assets/catalog.json";
 
@@ -14,8 +13,6 @@ const ProductMenu = (props) => {
   };
 
   const menu = categories.map((category) => {
-    // console.log(props.category === category);
-
     return (
       <MenuItem
         key={category}
