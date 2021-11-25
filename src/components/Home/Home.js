@@ -10,7 +10,7 @@ const Home = () => {
           <HomeLogo>ShopStore</HomeLogo>
           <Slogan>The one stop shop for all your store needs</Slogan>
         </div>
-        <Link to="/products">
+        <Link to="/shopping-cart/products">
           <ShopButton type="button">Shop</ShopButton>
         </Link>
       </LandingContainer>

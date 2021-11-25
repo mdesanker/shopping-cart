@@ -14,13 +14,13 @@ const Header = (props) => {
   return (
     <HeaderContainer>
       <Nav>
-        <NavLink to="/">
+        <NavLink to="/shopping-cart">
           <Logo>ShopStore</Logo>
         </NavLink>
         <NavUnordered>
           {links.map((link) => {
             return (
-              <NavLink key={link.id} to={link.to}>
+              <NavLink key={link.id} to={`/shopping-cart${link.to}`}>
                 <li>{link.name}</li>
               </NavLink>
             );
