@@ -30,7 +30,6 @@ const ProductMenu = (props) => {
 
   return (
     <MenuContainer>
-      {/* <MenuHeader>Categories</MenuHeader> */}
       <MenuItem
         id="all"
         active={props.category === "all" ? true : false}
@@ -45,32 +44,24 @@ const ProductMenu = (props) => {
 
 const MenuContainer = styled.div`
   position: fixed;
-  top: 70px;
-  left: 0;
-  width: 150px;
-  height: calc(100vh - 70px);
+  top: 100px;
+  left: 5px;
+  width: 170px;
+  height: auto;
 
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  // background-color: lightgray;
-  padding-top: 2rem;
-`;
-
-const MenuHeader = styled.h3`
-  font-size: 1rem;
-  text-transform: uppercase;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid gray;
-  margin-bottom: 0.5rem;
+  border: 1px solid gray;
 `;
 
 const MenuItem = styled.button`
   font-size: 1rem;
+  text-align: left;
   text-transform: uppercase;
   width: 100%;
-  padding: 10px;
+  padding: 15px;
   margin: 5px 0;
   background-color: transparent;
   border: none;

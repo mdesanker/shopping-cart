@@ -33,7 +33,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 10px;
+  margin: 0 10px 30px;
 `;
 
 const ProductImage = styled.img`

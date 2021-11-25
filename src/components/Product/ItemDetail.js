@@ -53,7 +53,7 @@ const ItemDetail = (props) => {
 
 const ItemContainer = styled.main`
   display: flex;
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto 50px;
   padding-top: 100px;
 `;
